@@ -1,0 +1,107 @@
+1. Print the present working directory.
+$pwd
+2. From working direcory show the contents of root directory.  
+ $ls /
+3. Change directory to root.
+$cd /
+4. Change back to your home directory. Check it by running pwd command.
+$cd ~
+5. Create two directories C and Java under your Lab directory. Create 3 files f1, f2 and f3 with extension .c in C
+     directory.  Create 2 files by name first and second  with .java extension in directory Java. Do not change your
+     work directory. Verify it using ls command.
+Ans : 
+Considering your current dir is lab
+   $mkdir C
+   $mkdir Java
+   $cd C
+   $touch f1.c f2.c f3.c
+   $cd ..
+   $touch Java/one.java Java/two.java
+   $ls
+6. Create one more file by name prog1 under directory C.  Move all .c files from directory C  under current
+    directory.
+$touch prog1
+   $cp C/*.c .
+7. Create another directory by name temp under directory lab.
+$mkdir temp
+8. Move all files from directory C and .java files in directory temp .
+$mv C/*.c temp/.
+   $mv Java/*.java temp/.
+9. Copy all files from dir temp , starting with name f  in another directory by name  copy_file . Create this
+     copy_file directory  under directory C. Verify using ls.
+$mkdir C/copy_file
+   $cp temp/*.* C/copy_file/*.*
+   $ls
+10. Remove all .c files from your current directory. Verify using ls.
+$rm *.c
+   $ls
+11. Create directory by name new under directory lab.
+$mkdir new
+12. Create any file under dir new.  Verify using ls.
+$touch new/file
+   $ls
+13. Remove directory  new. Verify using ls.
+$rm -r new
+14. Create hard link for any file and check the effect using ls command.
+.$touch try
+   $ln try hdlnk
+   $ls 
+15. Create soft link for any file and check the effect using ls command.
+$touch try1
+   $ln -s try1 swlnk
+   $ls
+16. Create files hello1,hello2, hellofile under dir C. Create directory by name hellodir under dir lab.
+.$touch C/hello1 C/hello2 C/hellofile
+   $mkdir hellodir 
+17. Find all the files with names starting from  hello. Note command should not display directory.
+$find . -type f -name "hello*"
+18. Count number of entries in your current directory.
+ls | wc -l
+19. Find the empty files form dir copyfile which is in dir C.
+find C/copy_file -empty
+20. Count total number of C files from copyfile  directory.
+ls C/copy_file | wc -l
+21. Count all the directories present in current directory.
+find . type -d | wc -l
+22. Consider following data file having roll-no, name and marks.
+    5 amit 59
+    1 babita 90
+    3 chandan 89
+    4 daya 69
+    2 edwina 74
+    sort the data on column 1 , 2 and 3.
+    Store the data in different files and see the result.
+sort -n -k1 data > one
+   $cat one
+   $sort -k2 data > two
+   $cat two
+   $sort -n -k3 data > three
+   $cat three
+23. Create file with names of 10 countries.
+    1. try head command
+    2. try tail command
+    3. display 6th and 7th country from your file.
+    3. Ans : $head -n 7 country | tail -n 2
+
+24. create following data file
+
+1231  Amitabh     1000000
+2561  Priyanka     289050
+1653  ShahRukh  62645
+3823  Hritik          745218
+5183  Dipika         56123
+
+-Sort in descending order of name
+
+-Add 4 more entries in above file
+sort -r -k2 data > NewActors
+-Store sorted data in file by name NewActors
+cat >> data
+-Display line numbers for file (hint nl)
+nl data
+-Display first 2 lines of sorted data
+head -n 2 NewActors
+-Display last 3 lines of sorted data
+tail -n 3 NewActors
+-Display line 3 4 5 of sorted data
+head -n 5 data | tail -n 3

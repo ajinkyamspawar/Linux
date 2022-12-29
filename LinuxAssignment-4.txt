@@ -1,0 +1,132 @@
+1. Try out the following command.
+    $tar  -cf dirname.tar sourcedir
+    $tar  -xf dirnamr.tar
+2. Try out the following command.
+    $zip  -r dirname.zip sourcedir
+    $unzip dirname.zip
+3. Create a file by name fruits and add the following data in it. Perform following commands on it.
+   apple
+   apple
+   apple
+   banana
+   mango
+   mango
+   pineapple  
+   grapes
+   a.$uniq fruits.txt
+   b.$uniq -c fruits.txt
+4. Accept 2 numbers from user and print the smallest number.
+shell4.sh
+--------------
+echo "Enter first number"
+read n1
+echo "Enter second number"
+read n2
+if [ $n1 -lt $n2]
+then 
+   echo $n1 is smallest 
+else
+   echo $n2 is smallest
+fi
+if [ $n1 -eq $n2 ]
+then
+   echo "Numbers are equal"
+fi
+
+5. Accept file name from user, if file exists and file has read permission then print its contents. Else give an appropriate  message.
+shell5.sh
+--------------
+echo "Enter File Name : "
+read fname
+if [ -r $fname ]
+then
+  cat $fname
+else
+  echo This is not a file....
+fi
+
+6. Create following data file by name Employee. File contains id-no of a person , name and commission earned
+   1425  Ravi 15.65
+   4320  Anuja 26.27
+   6830   Sita 36.15
+   1450  Raju 21.86
+   Write a menu driven program which accepts column number from user and print the sorted data according to the column.
+ shell6.sh
+--------------
+echo "Enter file name ::"
+read fname
+echo "Enter the column number to sort data"
+echo "1:Id 2:Name 3:Amount"
+read no
+
+case $no in
+     1) sort -k 1 $fname > temp
+        cat temp
+        ;;     
+     2) sort -k 2 $fname > temp1
+        cat 
+        ;;
+     3) sort -k 3 $fname > temp2
+        cat temp2
+        ;;
+esac
+7. Write a menu driven program to design a calculator to add/sub/mul/div for 2 numbers. Accept numbers  and a operator  from user.
+shell9.sh
+---------------
+echo "MENU"
+echo "----"
+echo "1 :: Add"
+echo "2 :: Subtract"
+echo "3 :: Multiply"
+echo "4 :: Divide"
+echo "5 :: Exit"
+echo "Enter your choice...."
+read cho
+echo "Enter first no."
+read no1
+echo "Enter second no."
+read no2
+
+case $cho in
+ 1) x = $((no1+no2))
+    echo "Sum " $x
+    ;;
+ 2) x = $((no1-no2))
+    echo "Subtraction " $x
+    ;;
+ 3) x = $((no1*no2))
+    echo "Multiplication " $x
+    ;;
+ 4) x = $((no1/no2))
+    echo "Division " $x
+    ;;
+esac
+
+8. Write a shell utility to check if given string is palindrome.
+shell8.sh
+--------------  
+echo "Enter the string"
+read str1;
+str2=$(echo "$str1" | rev)
+if [ $str1 == $str2 ]
+then 
+   echo "Palindrom"
+else 
+   echo "Not a palindrom"
+fi
+
+9. Write a shell utility which accepts source file or directory name and destination directory name from the user . If source name is a file name, then copy the file in destination directory. If source name  is directory then copy entire directory in destination directory.  
+shell9.sh
+-------------
+echo "Enter file/directory name"
+read name
+echo "Enter destination"
+read dname
+if [ -f $name ]
+then
+   cp $name $dname/.
+fi
+if [ -d $name ]
+then 
+   cp $name/*.*  $dname/.
+fi

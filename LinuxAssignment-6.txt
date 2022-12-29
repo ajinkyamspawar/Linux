@@ -1,0 +1,132 @@
+1. Using positional parameter display contents of file. File name is given as command line argument.
+     Script should give proper message to user if arguments are not passed correctly.
+ shell1.sh
+-------------
+if [ $# -eq 0 ]
+then
+  echo Arguments required
+else
+    if [ $# -gt 1 ]
+    then 
+       echo Too many arguments
+    else
+       cat $1
+    fi
+fi
+
+Note : to run the script ----
+        bash shell1.sh filename
+
+2. Write a script to copy the contents of file1 to file2 using positional parameters. Script should give
+     proper  message to user if arguments are  not passed correctly.
+shell2.sh
+----------
+cp $1 $2
+   Note : to run the script ----
+          bash shell2.sh filename1 filename2
+          contents of filename1 will be copied to filename2
+3. Write a script to copy contents of 2 files in one file and see the result using cat. Use positional
+     parameters. Script should give proper message to user if arguments are  not passed correctly.
+shell3.sh
+----------
+cat $1 $2 >> $3
+   Note : to run the script ----
+          bash shell3.sh filename1 filename2 filename3
+          contents of filename1 and filename2 will be copied in filename3.
+
+
+4. Write a shell utility to copy top n lines from a file into fileCopy.txt file. Pass number of lines and file
+     name as command line arguments. Script should give proper message to user if arguments are  not
+     passed correctly.
+shell4.sh
+-----------------
+echo "Enter File Name :: "
+read fname
+echo "No. of lines :: "
+read no
+cat $fname | head -n $no > newfile
+
+Note : to run the script ----
+          bash shell4.sh filename no_of_lines
+
+5. Write a utility to check if the string is a Palindrom. Pass a string using command line arguments.
+shell5.sh
+-------------
+str1=$1  
+str2=$(echo "$str1" | rev)
+if [ $str1 == $str2 ]
+then 
+   echo "Palindrom"
+else 
+   echo "Not a palindrom"
+fi
+
+6.  Write a utility which accepts any file/directory name as command line argument.  Utility should 
+     give proper message if argument passed is a file. If argument is a directory, utility should print
+     total  number of files in the directory. Proper msg shoulg be given for incorrect arguments.
+shell6.sh
+------------
+if [ $# -eq 1 ]
+then
+  if [ -f $1 ]
+  then
+     echo "Argument passed is a file"
+  fi
+  if [ -d $1 ]
+  then
+     echo $1 is a directory
+     echo Following are the directory contents
+   find . -type f |wc -l
+  fi
+else
+  echo Wrong number of arguments
+fi
+7. Write a utility to check if the number passed as command line argument is a perfect number.
+.shell7.sh
+-----------
+num=$1
+i=1
+while [ $i -lt $num ]
+do
+   p=$((num%i))
+   if [ $p -eq 0 ]
+   then
+     sum=$((sum+i))
+    fi  
+    i=$((i+1))  
+done
+if [ $sum -eq $num ]
+then
+   echo number is perfect number
+else
+   echo number is not a perfect number 
+fi  
+
+8. Write  a utility to add all the numbers passed through command line. Also print the count of
+     numbers.
+shell8.sh
+-----------
+i=0
+sum=0
+for i in range $*
+do
+   sum=$((sum+i)
+done
+echo sum of the arguments is $sum
+echo count of arguments is $#
+9. Write a utility which will copy all empty files from current directory to the directory by name
+    EmptyDir. Create directory EmptyDir.
+shell9.sh
+-----------
+for var in $(find . -type f -empty)
+do  
+    cp $var EmptyDir/.
+done
+
+10. Try out following tar command . Create necessary files/directories if required.
+       tar cvf file.tar *.c    
+       tar xvf file.tar    
+ 
+11. Try out following zip command . Create necessary files/directories if required.
+        $zip myfile.zip filename.txt
+        $unzip myfile.zip

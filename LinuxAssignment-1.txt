@@ -1,0 +1,102 @@
+1. Display only the day of system date.
+date +%a
+   date +%A
+2. Display only the month of system date.
+date +%b
+   date +%B
+3. Execute the command to check hidden files.
+ls -a
+4. Execute command ls -l and study it in details again.
+ ls -l
+5. Create file f1 of size 0 bytes.
+touch f1
+6. Create file f11 f12 f13 of size 0 bytes us	ing single command.
+ touch f11 f12 f13 
+7. List all the files in your current directory.
+ls
+8. Create file Country and store names of 5 countries.Use cat command.
+ cat >country
+   India
+   Nepal
+   Bangladesh
+   ShriLanka
+   Bhutan
+   ctrl+d
+9. Display contents of file Country.
+cat country
+10. Create another file by name MoreCountries and store 5 more country names.
+cat > MoreCountries
+    USA
+    UK
+    Poland
+    Germany
+    Austria
+    ctrl+d
+11. Display contents of MoreCountries.
+cat MoreCountries
+12. Copy contents of file Country in another file by name NewCountry.
+ cp country NewCountry
+13. See directory listing and check all file names you have created.
+ls
+14. Rename file Country to NewCountry and check in directory listing if file
+    by name Country exsists.
+ mv country CountryList
+15. Move contents of file MoreCountries in MoreCountries1. Check directory
+    listing.
+ mv MoreCountries MoreCountries1
+16. Delete file f12.
+rm f12
+17. Delete file f11 and f13 using single command.
+rm f11 f13
+18. Clear the screen.
+clear
+19. Try cal command with all options.
+cat NewCountry MoreCountries1
+20. Try date command with all options.
+cat >> NewCountry
+    Pakistan
+    Afghanistan
+    ctrl+d
+21. Diaplay contents of both the files NewCountry and MoreCountries1 using 
+    single command.
+ cat NewCountry >> MoreCountries1
+22. Add 2 more country names in file NewCountry.
+whoami
+23. Copy contents of file NewCountry at the end of MoreCountries1.
+ man ls
+24. Execute command whoami.
+mkdir CDAC
+25. Execute man command for ls.
+cd CDAC
+26. Create directory CDAC.
+pwd
+27. Change directory to CDAC.
+cat>Trainers
+    some entry
+    ctrl+d
+    
+    cat>Students
+    some entry
+    ctrl+d
+
+    cat>Admin
+    some entry
+    ctrl+d
+28. Execute command pwd and see the path.
+ ls
+29. Create files Trainers, Students and Admin with some meaningful entries
+    under directory CDAC.
+cd ..
+30. Check directory listing.
+pwd
+  ls
+31. Change your directory one level back.
+
+32. Check output of pwd and ls commands.
+
+31. Create 2 directories eDAC and eDBDA under directory CDAC.
+
+32. Using relative path create file DAC-Subject with names of 3 subjects and
+    file DBDA-Subject with names of 3 subjects under directories eDAC and 
+    eDBDA respectively.
+    
